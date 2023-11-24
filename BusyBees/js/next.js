@@ -45,6 +45,8 @@ function saveDataAndRedirect(e) {
   // next.html 페이지로 이동
   window.location.href = 'html/next.html';
 }
+// Remove the container reference from your HTML
+
 function addWaypoint() {
   // 최대 5개의 경유지를 허용
   const maxWaypoints = 5;
@@ -59,30 +61,29 @@ function addWaypoint() {
   // 새로운 경유지 입력란 생성
   const newWaypointInput = document.createElement('input');
   newWaypointInput.type = 'text';
-  newWaypointInput.placeholder = '경유지';
+  newWaypointInput.placeholder = 'stopover';
   newWaypointInput.className = 'waypoint-input';
 
-  // 경유지 입력란을 컨테이너에 추가
+  // 경유지 입력란을 현재의 마지막 input 뒤에 추가
   const waypointsContainer = document.getElementById('waypoints-container');
   waypointsContainer.appendChild(newWaypointInput);
 }
 
 function removeWaypoint() {
-  // Get the waypoints container
-  const waypointsContainer = document.getElementById('waypoints-container');
-
   // Get all waypoint input elements
-  const waypointInputs = waypointsContainer.querySelectorAll('.waypoint-input');
+  const waypointInputs = document.querySelectorAll('.waypoint-input');
 
   // Check if there is at least one waypoint
   if (waypointInputs.length > 1) {
     // Remove the last waypoint input
     const lastWaypointInput = waypointInputs[waypointInputs.length - 1];
-    waypointsContainer.removeChild(lastWaypointInput);
+    lastWaypointInput.parentNode.removeChild(lastWaypointInput);
   } else {
     alert('최소 1개의 경유지가 필요합니다.');
   }
 }
+
+
 
 function calculateCalorie() {
   // 거리와 소요 시간을 가져옵니다.

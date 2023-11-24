@@ -1,23 +1,39 @@
 /* next.css */
 
 
-.distance {
-  font-size: 1px;
 
+/* <p id="distance">거리</p>
+<p id="duration">소요 시간</p>
+<p id="calorieResult"></p> */
+ 
+#distance {
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 40px; /* Adjust the font size to make it more visible */
+  margin-bottom: 8px; /* Add some space between the elements */
+}
+ 
+#duration{
+  text-align: right;
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 30px; /* Adjust the font size to make it more visible */
+  margin-bottom: 8px; /* Add some space between the elements */
 }
 
+#calorieResult{
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 30px; /* Adjust the font size to make it more visible */
+  margin-bottom: 8px; /* Add some space between the elements */
+}
 .rounded-box {
-  width: 400px;
+  padding: 20px 20px;
+  width: 460px;
   height: 180px;
-  background-color: #8a2be2; /* 보라색을 설정할 수 있습니다. */
+  background-color: #fed081; /* 보라색을 설정할 수 있습니다. */
   border-radius: 20px; /* 각을 둥글게 하는 정도를 설정할 수 있습니다. */
-  display: flex;
-  color: #191616; /* 텍스트 색상을 설정할 수 있습니다. */
-  font-size: 18px;
-  display: flex;
-  position: fixed;
-  bottom: 10%; /* 아래 여백 조절 */
-  right: 10%; /* 오른쪽 여백 조절 */
+  position:absolute;
+  align-items: center;
+  bottom: 10%;
+  left: 62%;
 }
 
 
@@ -26,13 +42,14 @@
 body, h1, ul, form, input, label {
   margin: 0;
   padding: 0;
+  font-family:'Courier New', Courier, monospace;
 }
 
 header {
-  background: #f2f2f2;
+  background: #f8f3fc;
   padding: 30px 0;
   text-align: center;
-  background-color: antiquewhite;
+  background-color: #fed081;
 }
 
 nav ul {
@@ -86,10 +103,25 @@ input[type="text"], button {
   padding: 10px;
 }
 
+.button-container {
+  display: flex;
+}
+
+.button-container button {
+  display: inline-block;
+  margin-right: 10px; /* 원하는 간격으로 조절할 수 있습니다. */
+}
+
 button {
-  background: #4CAF50;
+  background: #7bc1b2;
   color: white;
+  font-weight: ;
+  border-radius: 20px; /* 각을 둥글게 하는 정도를 설정할 수 있습니다. */
+
   border: none;
   cursor: pointer;
   padding: 10px 20px;
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 15px; /* Adjust the font size to make it more visible */
 }
+/* #a9d4f4; */

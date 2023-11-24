@@ -8,39 +8,42 @@
 
 <body>
   <header>
-    <h1>BusyBees</h1>
+    <h1>BusyBees🐝</h1>
     <nav>
       <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">MY PAGE</a></li>
+        <li><a href="../index.html">HOME</a></li>
+        <li><a href="../index.html">MY PAGE</a></li>
       </ul>
     </nav>
   </header>
   <main>
     <div id="map"></div>
     <div id="form-container">
-      <form>
-        <input type="text" placeholder="출발지" id="start">
-        <div id="waypoints-container">
-          <input type="text" placeholder="경유지" class="waypoint-input">
-        </div>
-        <input type="text" placeholder="도착지" id="destination">
+      <form> 
+        <div class="button-container">
         <button type="button" onclick="addWaypoint()">+</button>
         <button type="button" onclick="removeWaypoint()">-</button>
-
+        </div>
+        
+        <div class="input-wrapper">
+          <input type="text" placeholder="departure" id="start">
+          <div id="waypoints-container">
+            <input type="text" placeholder="stopover" class="waypoint-input">
+          </div>
+          <input type="text" placeholder="arrival" id="destination">
+        </div>
+       
         <button type="submit">검색</button>
       </form>
+      
     </div>
-      <div class="rounded-box">
 
-        <h2><p id="distance">447m</p></h1>
+    <div class="rounded-box">
+
+      <div id="distance"><b>DISTANCE km</b></div><br>
+      <div id="duration"><b>🚶‍♂️ESTIMATED TIME</b></div>
+      <div id="calorieResult"></div>
   
-        <p id="duration">11분</p>
-
-        <p id="calorieResult"></p>
-
-
-   
     </div>
 
 
