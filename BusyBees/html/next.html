@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>BusyBees</title>
+  <link rel="stylesheet" href="../css/next.css">
+</head>
+
+<body>
+  <header>
+    <h1>BusyBees</h1>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">MY PAGE</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="map"></div>
+    <div id="form-container">
+      <form>
+        <input type="text" placeholder="출발지" id="start">
+        <div id="waypoints-container">
+          <input type="text" placeholder="경유지" class="waypoint-input">
+        </div>
+        <input type="text" placeholder="도착지" id="destination">
+        <button type="button" onclick="addWaypoint()">+</button>
+        <button type="button" onclick="removeWaypoint()">-</button>
+
+        <button type="submit">검색</button>
+      </form>
+    </div>
+      <div class="rounded-box">
+
+        <h2><p id="distance">447m</p></h1>
+  
+        <p id="duration">11분</p>
+
+        <p id="calorieResult"></p>
+
+
+   
+    </div>
+
+
+    <!-- 카카오맵 API 스크립트 -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=4aaaab13e8df34cb92f85f80a8e42bad"></script>
+    <!-- 메인 JavaScript 파일 -->
+    <script src="../js/next.js"></script>  
+    <script>
+      var userWeight = localStorage.getItem('weight');
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // Call the calculateCalorie function
+        calculateCalorie();
+      });
+
+      function calculateCalorie() {
+        // Your existing calculateCalorie function logic
+        var distance = document.getElementById("distance").innerText;
+        var duration = document.getElementById("duration").innerText;
+
+        // Check if userWeight is available
+    if (!userWeight || isNaN(parseFloat(userWeight)) || parseFloat(userWeight) <= 0) {
+      alert('유효한 몸무게 정보가 없습니다.');
+      return;
+    }
+
+        var weight = parseFloat(userWeight);
+        var speed = 4; // km/h
+        var calorie = (weight * 220.06) / 1000;
+
+        // Display the calculated calorie result in the HTML element
+        var calorieResultElement = document.getElementById("calorieResult");
+        calorieResultElement.innerText = calorie.toFixed(2) + "kcal";
+      }
+    </script>
+    
+
+
+
+
+
+</body>
+</html>

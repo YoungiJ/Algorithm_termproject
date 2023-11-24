@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>BusyBees</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<header>
+  <h1>BusyBees</h1>
+  <nav>
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">MY PAGE</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div id="map"></div>
+
+
+  <div id="form-container">
+    <form id="userForm" onsubmit="saveDataAndRedirect(event)">
+      <div class="input-group">
+        <label for="male">남</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="female">여</label>
+        <input type="radio" id="female" name="gender" value="female">
+      </div>
+      <input type="text" id="name" placeholder="이름">
+      <input type="text" id="age" placeholder="나이">
+      <input type="text" id="height" placeholder="키 (cm)">
+      <input type="text" id="weight" placeholder="몸무게 (kg)">
+      <button type="submit">검색</button>
+    </form>
+
+  </div>
+</main>
+
+
+<script>
+  function saveDataAndRedirect(event) {
+    event.preventDefault();
+    
+    // Get user input
+    var gender = document.querySelector('input[name="gender"]:checked').value;
+    var name = document.getElementById("name").value;
+    var age = document.getElementById("age").value;
+    var height = document.getElementById("height").value;
+    var weight = document.getElementById("weight").value;
+
+    // Check for required fields
+    if (!gender || !name || !age || !height || !weight) {
+      alert('모든 필수 항목을 입력하세요.');
+      return;
+    }
+
+    // Convert numerical values to strings
+    age = age.toString();
+    height = height.toString();
+    weight = weight.toString();
+
+    // Save user data to local storage
+    var gender = localStorage.getItem('gender');
+    var name = localStorage.getItem('name');
+    var age = localStorage.getItem('age');
+    var height = localStorage.getItem('height');
+    var weight = localStorage.getItem('weight');
+    
+    // Redirect to the second HTML file
+    window.location.href = './html/next.html';
+  }
+</script>
+
+
+
+<!-- 카카오맵 API 스크립트 -->
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=4aaaab13e8df34cb92f85f80a8e42bad"></script>
+<!-- 메인 JavaScript 파일 -->
+<script src="./js/main.js"></script>  
+</body>
+</html>
+
