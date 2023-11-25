@@ -67,6 +67,8 @@ function addWaypoint() {
   // 경유지 입력란을 현재의 마지막 input 뒤에 추가
   const waypointsContainer = document.getElementById('waypoints-container');
   waypointsContainer.appendChild(newWaypointInput);
+  waypointsContainer.scrollTop = waypointsContainer.scrollHeight;
+
 }
 
 function removeWaypoint() {
@@ -74,13 +76,11 @@ function removeWaypoint() {
   const waypointInputs = document.querySelectorAll('.waypoint-input');
 
   // Check if there is at least one waypoint
-  if (waypointInputs.length > 1) {
+  if (waypointInputs.length > 0) {
     // Remove the last waypoint input
     const lastWaypointInput = waypointInputs[waypointInputs.length - 1];
     lastWaypointInput.parentNode.removeChild(lastWaypointInput);
-  } else {
-    alert('최소 1개의 경유지가 필요합니다.');
-  }
+  } 
 }
 
 
