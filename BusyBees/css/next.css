@@ -1,4 +1,6 @@
 /* next.css */
+
+
 #waypoints-container {
   max-height: 150px; /* 나타낼 최대 높이를 지정, 필요에 따라 조절 */
   overflow-y: auto; 
@@ -99,7 +101,7 @@ form {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  width: 30%; /* 폼의 너비를 form-container에 맞춥니다. */
+  width: 20%; /* 폼의 너비를 form-container에 맞춥니다. */
 }
 
 .input-group {
@@ -119,7 +121,7 @@ input[type="text"], button {
 .button-container button {
   width: 50px;
   display: inline-block;
-  margin-right: 10px; /* 원하는 간격으로 조절할 수 있습니다. */
+  margin-right: 15px; /* 원하는 간격으로 조절할 수 있습니다. */
 }
 
 button {
@@ -127,7 +129,7 @@ button {
   color: white;
   font-weight:bold ;
   border-radius: 20px; /* 각을 둥글게 하는 정도를 설정할 수 있습니다. */
-
+  
   border: none;
   cursor: pointer;
   padding: 10px 20px;
