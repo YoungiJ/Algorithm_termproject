@@ -67,9 +67,13 @@ function addWaypoint() {
   // 경유지 입력란을 현재의 마지막 input 뒤에 추가
   const waypointsContainer = document.getElementById('waypoints-container');
   waypointsContainer.appendChild(newWaypointInput);
-  waypointsContainer.scrollTop = waypointsContainer.scrollHeight;
 
+  // Check if scrolling to the bottom is necessary
+  if (waypointsContainer.scrollHeight > waypointsContainer.clientHeight) {
+    waypointsContainer.scrollTop = waypointsContainer.scrollHeight - waypointsContainer.clientHeight;
+  }
 }
+
 
 function removeWaypoint() {
   // Get all waypoint input elements
@@ -102,7 +106,7 @@ function calculateCalorie() {
   // 칼로리를 계산합니다.
   var speed = 4; // km/h
   var calorie = (weight * 220.06) / 1000;
-
+//var calorie=(weight*0.035)+(distance*0.04)
   // 칼로리를 출력합니다.
   document.getElementById("kcal").innerText = calorie.toFixed(2) + "kcal";
 }

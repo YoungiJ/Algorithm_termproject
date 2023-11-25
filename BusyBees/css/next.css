@@ -1,4 +1,8 @@
 /* next.css */
+#waypoints-container {
+  max-height: 150px; /* 나타낼 최대 높이를 지정, 필요에 따라 조절 */
+  overflow-y: auto; 
+}
 
 
 #map {
@@ -94,8 +98,8 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%; /* 폼의 너비를 form-container에 맞춥니다. */
+  /* align-items: center; */
+  width: 30%; /* 폼의 너비를 form-container에 맞춥니다. */
 }
 
 .input-group {
@@ -103,9 +107,9 @@ form {
 }
 
 input[type="text"], button {
-  width: 50%;
+  width:200px;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 15px;
 }
 
 .button-container {
@@ -113,6 +117,7 @@ input[type="text"], button {
 }
 
 .button-container button {
+  width: 50px;
   display: inline-block;
   margin-right: 10px; /* 원하는 간격으로 조절할 수 있습니다. */
 }
