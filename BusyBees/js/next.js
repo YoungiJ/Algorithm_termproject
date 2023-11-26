@@ -50,9 +50,9 @@ function saveDataAndRedirect(e) {
 function addWaypoint() {
   // 최대 5개의 경유지를 허용
   const maxWaypoints = 5;
+  const waypointsContainer = document.getElementById('waypoints-container');
+  const waypointInputs = waypointsContainer.querySelectorAll('.waypoint-input');
 
-  // 현재 입력된 경유지의 개수 확인
-  const waypointInputs = document.querySelectorAll('.waypoint-input');
   if (waypointInputs.length >= maxWaypoints) {
     alert('최대 5개의 경유지까지만 추가할 수 있습니다.');
     return;
@@ -64,14 +64,17 @@ function addWaypoint() {
   newWaypointInput.placeholder = 'stopover';
   newWaypointInput.className = 'waypoint-input';
 
-  // 경유지 입력란을 현재의 마지막 input 뒤에 추가
-  const waypointsContainer = document.getElementById('waypoints-container');
-  waypointsContainer.appendChild(newWaypointInput);
+  // 새로운 자동완성 목록 엘리먼트 생성
+  const newAutocompleteList = document.createElement('ul');
+  newAutocompleteList.className = 'autocomplete-list';
+  newAutocompleteList.id = 'waypoint-autocomplete-list-' + waypointInputs.length; // 고유한 ID
 
-  // Check if scrolling to the bottom is necessary
-  if (waypointsContainer.scrollHeight > waypointsContainer.clientHeight) {
-    waypointsContainer.scrollTop = waypointsContainer.scrollHeight - waypointsContainer.clientHeight;
-  }
+  // 경유지 입력란과 자동완성 목록 엘리먼트를 컨테이너에 추가
+  waypointsContainer.appendChild(newWaypointInput);
+  waypointsContainer.appendChild(newAutocompleteList);
+
+  // 새로운 경유지 입력란에 자동완성 기능 적용
+  applyAutocomplete(newWaypointInput, newAutocompleteList.id);
 }
 
 
@@ -84,7 +87,7 @@ function removeWaypoint() {
     // Remove the last waypoint input
     const lastWaypointInput = waypointInputs[waypointInputs.length - 1];
     lastWaypointInput.parentNode.removeChild(lastWaypointInput);
-  } 
+  }
 }
 
 

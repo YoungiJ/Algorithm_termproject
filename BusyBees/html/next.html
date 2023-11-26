@@ -5,87 +5,91 @@
   <title>BusyBees</title>
   <link rel="stylesheet" href="../css/next.css">
 </head>
+  <body>
+    <header>
+      <h1>BusyBees🐝</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html"><b>HOME</b></a></li>
+          <li><a href="../index.html"><b>MY PAGE</b></a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="map"></div>
+      <div id="form-container">
+        <form>
+          <div class="button-container">
+            <button id="plusButton" type="button" onclick="addWaypoint()">+</button>
+            <button id="minusButton" type="button" onclick="removeWaypoint()">-</button>
+          </div>
 
-<body>
-  <header>
-    <h1>BusyBees🐝</h1>
-    <nav>
-      <ul>
-        <br>
-        <li><a href="../index.html"><b>HOME</b></a></li>
-        <li><a href="../index.html"><b>MY PAGE</b></a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <div id="map"></div>
-    <div id="form-container">
-      <form> 
-        <div class="button-container">
-          <button id="plusButton" type="button" onclick="addWaypoint()">+</button>
-          <button id="minusButton" type="button" onclick="removeWaypoint()">-</button>
-        </div>
-        
-        
-        <div class="input-wrapper">
-          <input type="text" placeholder="departure" id="start">
+          <!-- 출발지 입력 필드와 자동완성 목록 -->
+          <div class="input-wrapper">
+            <input type="text" placeholder="departure" id="start">
+            <ul id="start-autocomplete-list" class="autocomplete-list"></ul>
+          </div>
+
+          <!-- 경유지 입력 필드와 자동완성 목록 -->
+          <!-- 실제 코드에서는 각 경유지 입력란마다 고유한 ID를 부여하고, 자바스크립트로 추가해야 합니다. -->
           <div id="waypoints-container">
             <input type="text" placeholder="stopover" class="waypoint-input">
+            <ul id="waypoint-autocomplete-list" class="autocomplete-list"></ul>
           </div>
-          <input type="text" placeholder="arrival" id="destination">
-        </div>
-       
-        <button type="submit">검색</button>
-      </form>
-      
-    </div>
 
-    <div class="rounded-box">
-
-      <div id="distance"><b>DISTANCE km</b></div><br>
-      <div id="duration"><b>🚶‍♂️ESTIMATED TIME</b></div>
-      <div id="calorieResult"></div>
-  
-    </div>
+          <!-- 도착지 입력 필드와 자동완성 목록 -->
+          <div class="input-wrapper">
+            <input type="text" placeholder="arrival" id="destination">
+            <ul id="destination-autocomplete-list" class="autocomplete-list"></ul>
+          </div>
 
 
-    <!-- 카카오맵 API 스크립트 -->
-    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=4aaaab13e8df34cb92f85f80a8e42bad"></script>
-    <!-- 메인 JavaScript 파일 -->
-    <script src="../js/next.js"></script>  
-    <script>
-      var userWeight = localStorage.getItem('weight');
+          <button type="submit">검색</button>
+        </form>
+      </div>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        // Call the calculateCalorie function
-        calculateCalorie();
-      });
 
-      function calculateCalorie() {
-        // Your existing calculateCalorie function logic
-        var distance = document.getElementById("distance").innerText;
-        var duration = document.getElementById("duration").innerText;
+      <!-- 카카오맵 API 스크립트 -->
+      <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=4aaaab13e8df34cb92f85f80a8e42bad"></script>
+      <!-- 메인 JavaScript 파일 -->
+      <script src="../js/next.js"></script>
+      <script>
+        var userWeight = localStorage.getItem('weight');
 
-        // Check if userWeight is available
-    if (!userWeight || isNaN(parseFloat(userWeight)) || parseFloat(userWeight) <= 0) {
-      alert('유효한 몸무게 정보가 없습니다.');
-      return;
-    }
+        document.addEventListener('DOMContentLoaded', function() {
+          // Call the calculateCalorie function
+          calculateCalorie();
+        });
 
-        var weight = parseFloat(userWeight);
-        var speed = 4; // km/h
-        var calorie = (weight * 220.06) / 1000;
+        function calculateCalorie() {
+          // Your existing calculateCalorie function logic
+          var distance = document.getElementById("distance").innerText;
+          var duration = document.getElementById("duration").innerText;
 
-        // Display the calculated calorie result in the HTML element
-        var calorieResultElement = document.getElementById("calorieResult");
-        calorieResultElement.innerText = calorie.toFixed(2) + "kcal";
+          // Check if userWeight is available
+      if (!userWeight || isNaN(parseFloat(userWeight)) || parseFloat(userWeight) <= 0) {
+        alert('유효한 몸무게 정보가 없습니다.');
+        return;
       }
-    </script>
-    
+          var weight = parseFloat(userWeight);
+          var speed = 4; // km/h
+          var calorie = (weight * 220.06) / 1000;
 
+          // Display the calculated calorie result in the HTML element
+          var calorieResultElement = document.getElementById("calorieResult");
+          calorieResultElement.innerText = calorie.toFixed(2) + "kcal";
+        }
+      </script>
+      <script src="../js/search.js"></script>
+    </main>
+  </body>
 
-
-
-
-</body>
+<footer>
+  <!-- .rounded-box를 footer 내부에 배치합니다 -->
+  <div class="rounded-box">
+    <div id="distance"><b>DISTANCE km</b></div><br>
+    <div id="duration"><b>🚶‍♂️ESTIMATED TIME</b></div>
+    <div id="calorieResult"></div>
+  </div>
+</footer>
 </html>

@@ -9,39 +9,37 @@
   font-family:'Courier New', Courier, monospace;
 
 }
- 
-#distance {
-  color: #fff; /* Set a different color for better visibility */
-  font-size: 40px; /* Adjust the font size to make it more visible */
-  margin-bottom: 8px; /* Add some space between the elements */
-}
- 
-#duration{
-  text-align: right;
-  color: #fff; /* Set a different color for better visibility */
-  font-size: 30px; /* Adjust the font size to make it more visible */
-  margin-bottom: 8px; /* Add some space between the elements */
-}
 
-#calorieResult{
-  color: #fff; /* Set a different color for better visibility */
-  font-size: 30px; /* Adjust the font size to make it more visible */
-  margin-bottom: 8px; /* Add some space between the elements */
-}
-.rounded-box {
-  padding: 20px 20px;
-  width: 460px;
-  height: 180px;
-  background-color: #fed081; /* 보라색을 설정할 수 있습니다. */
-  border-radius: 20px; /* 각을 둥글게 하는 정도를 설정할 수 있습니다. */
-  position:absolute;
-  align-items: center;
-  bottom: 10%;
-  left: 62%;
-}
+/* 없어도 됨 */
+/*#distance {*/
+/*  color: #fff; !* Set a different color for better visibility *!*/
+/*  font-size: 40px; !* Adjust the font size to make it more visible *!*/
+/*  margin-bottom: 8px; !* Add some space between the elements *!*/
+/*}*/
 
+/*#duration{*/
+/*  text-align: right;*/
+/*  color: #fff; !* Set a different color for better visibility *!*/
+/*  font-size: 30px; !* Adjust the font size to make it more visible *!*/
+/*  margin-bottom: 8px; !* Add some space between the elements *!*/
+/*}*/
 
-
+/*#calorieResult{*/
+/*  color: #fff; !* Set a different color for better visibility *!*/
+/*  font-size: 30px; !* Adjust the font size to make it more visible *!*/
+/*  margin-bottom: 8px; !* Add some space between the elements *!*/
+/*}*/
+/*.rounded-box {*/
+/*  padding: 20px 20px;*/
+/*  width: 460px;*/
+/*  height: 180px;*/
+/*  background-color: #fed081; !* 보라색을 설정할 수 있습니다. *!*/
+/*  border-radius: 20px; !* 각을 둥글게 하는 정도를 설정할 수 있습니다. *!*/
+/*  position:absolute;*/
+/*  align-items: center;*/
+/*  bottom: 10%;*/
+/*  left: 62%;*/
+/*}*/
 
 body, h1, ul, form, input, label {
   margin: 0;
@@ -74,9 +72,20 @@ main {
   display: flex; /* Flex 컨테이너 설정 */
 }
 
+/*#map {*/
+/*  width: 50%;*/
+/*  height: 600px; !* 높이 설정 *!*/
+/*}*/
+
 #map {
-  width: 50%;
-  height: 600px; /* 높이 설정 */
+  display: flex;
+  width: 700px;
+  height: 450px; /* Adjust the height as needed */
+  position: relative;
+  bottom:-3cm;
+  left: 7%;
+  align-items: center;
+  box-shadow: 0 0 20px  #a9d4f4; /* Adjust the shadow properties as needed */
 }
 
 
@@ -106,7 +115,8 @@ input[type="text"], button {
   width: 50%;
   margin-bottom: 15px;
   padding: 10px;
-  
+  border-radius: 20px;
+
 }
 
 .button-container {
@@ -123,7 +133,6 @@ button {
   color: white;
   font-weight:bold ;
   border-radius: 20px; /* 각을 둥글게 하는 정도를 설정할 수 있습니다. */
-
   border: none;
   cursor: pointer;
   padding: 10px 20px;
