@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>BusyBees</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+  <body>
+    <header>
+      <h1>BusyBees🐝</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html"><b>HOME</b></a></li>
+          <li><a href="../index.html"><b>MY PAGE</b></a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="map"></div>
+      <div id="form-container">
+        <form id="userForm" onsubmit="saveDataAndRedirect(event)">
+          <div class="input-group">
+            <label for="male">male</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="female">female</label>
+            <input type="radio" id="female" name="gender" value="female">
+          </div>
+          <input type="text" id="name" placeholder="이름">
+          <input type="text" id="age" placeholder="나이">
+          <input type="text" id="height" placeholder="키 (cm)">
+          <input type="text" id="weight" placeholder="몸무게 (kg)">
+          <button type="submit">검색</button>
+        </form>
+      </div>
+    </main>
+    <!-- 카카오맵 API 스크립트 -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=4aaaab13e8df34cb92f85f80a8e42bad"></script>
+    <!-- 메인 JavaScript 파일 -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
+

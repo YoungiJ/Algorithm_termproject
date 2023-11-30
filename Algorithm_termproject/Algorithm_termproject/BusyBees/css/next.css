@@ -1,0 +1,142 @@
+/* next.css */
+
+#map {
+  display: flex;
+  width: 700px;
+  height: 450px; /* Adjust the height as needed */
+  position: relative;
+  bottom:-3cm;
+  left: 7%;
+  align-items: center;
+  box-shadow: 0 0 20px  #a9d4f4; /* Adjust the shadow properties as needed */
+}
+
+#distance {
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 40px; /* Adjust the font size to make it more visible */
+  margin-bottom: 8px; /* Add some space between the elements */
+}
+
+#time {
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 30px; /* Adjust the font size to make it more visible */
+  margin-bottom: 8px; /* Add some space between the elements */
+  text-align: right;
+}
+
+
+#duration{
+  text-align: right;
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 30px; /* Adjust the font size to make it more visible */
+  margin-bottom: 8px; /* Add some space between the elements */
+}
+
+#calorieResult{
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 30px; /* Adjust the font size to make it more visible */
+  margin-bottom: 8px; /* Add some space between the elements */
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  padding: 20px 0; /* 여백을 추가합니다 */
+  box-sizing: border-box; /* 패딩을 너비에 포함합니다 */
+}
+
+.rounded-box {
+  width: 1000px; /* 너비 설정 */
+  height: 180px; /* 높이 설정 */
+  background-color: #fed081; /* 배경색 설정 */
+  border-radius: 20px; /* 모서리 둥글게 */
+  margin-top: 15px; /* 지도와의 간격 조정을 위한 상단 마진 추가 */
+  padding: 30px;
+}
+
+
+
+body, h1, ul, form, input, label {
+  margin: 0;
+  padding: 0;
+  font-family:'Courier New', Courier, monospace;
+}
+
+header {
+  background: #f8f3fc;
+  padding: 30px 0;
+  text-align: center;
+  background-color: #fed081;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  display: inline;
+  margin: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  display: flex; /* Flex 컨테이너 설정 */
+}
+
+
+#form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48%;/* 간격! */
+  height: 650px;
+}
+
+/* 폼 내부 요소들에 대한 스타일 */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%; /* 폼의 너비를 form-container에 맞춥니다. */
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"], button {
+  width: 350px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.button-container {
+  display: flex;
+}
+
+.button-container button {
+  width: 100px;
+  display: inline-block;
+  margin-right: 15px; /* 원하는 간격으로 조절할 수 있습니다. */
+}
+
+button {
+  background: #7bc1b2;
+  color: white;
+  font-weight:bold ;
+  border-radius: 20px; /* 각을 둥글게 하는 정도를 설정할 수 있습니다. */
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: #fff; /* Set a different color for better visibility */
+  font-size: 15px; /* Adjust the font size to make it more visible */
+}
+/* #a9d4f4; */
