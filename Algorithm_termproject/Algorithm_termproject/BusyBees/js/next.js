@@ -23,22 +23,6 @@ kakao.maps.event.addListener(map, 'click', (mouseEvent) => {
   alert(`위도 : ${latlng.getLat()}, 경도 : ${latlng.getLng()}`);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  // LocalStorage에서 데이터 불러오기
-  var gender = localStorage.getItem('gender');
-  var name = localStorage.getItem('name');
-  var age = localStorage.getItem('age');
-  var height = localStorage.getItem('height');
-  var weight = localStorage.getItem('weight');
-
-  // HTML 요소에 데이터 설정
-  document.getElementById('userGender').textContent = gender;
-  document.getElementById('userName').textContent = name;
-  document.getElementById('userAge').textContent = age;
-  document.getElementById('userHeight').textContent = height;
-  document.getElementById('userWeight').textContent = weight;
-});
-
 function addWaypoint() {
   // 최대 5개의 경유지를 허용
   const maxWaypoints = 5;
