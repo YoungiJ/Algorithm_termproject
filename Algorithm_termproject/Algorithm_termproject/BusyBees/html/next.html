@@ -65,12 +65,11 @@
     <!-- 칼로리 계산 JS   -->
     <!-- 폼 제출 이벤트 리스너 -->
 <script>
+  var initialCalorie = 0;
+  updateCalorieDisplay(initialCalorie);
+
   document.getElementById('form-container').addEventListener('submit', function(event) {
     event.preventDefault();
-
-    // Your existing form submission logic...
-
-    // Call calculateCalorie function with the latest userWeight and storedShortestDistance
     calculateCalorie();
   });
 
@@ -92,20 +91,49 @@
     var distance = document.getElementById("distance").innerText;
     var duration = document.getElementById("duration").innerText;
 
-    // Retrieve the latest values from localStorage
-    var storedShortestDistance = localStorage.getItem('shortestDistance');
-    var userWeight = localStorage.getItem('weight');
+    // Check if the search button is clicked
+    if (event.submitter && event.submitter.type === "submit") {
+      // Retrieve the latest values from localStorage
+      var storedShortestDistance = localStorage.getItem('shortestDistance');
+      var userWeight = localStorage.getItem('weight');
+  
+      // Parse the values to numbers
+      var weight = parseFloat(userWeight);
+      var distanceValue = parseFloat(storedShortestDistance);
+   
+      // Perform the calorie calculation
+      var calorie = 5 * (weight * 0.035) + (distanceValue * 0.04);
+      
+      // Display the calculated calorie result in the HTML element
+      updateCalorieDisplay(calorie);
+    }
+  }
 
-    // Parse the values to numbers
-    var weight = parseFloat(userWeight);
-    var distanceValue = parseFloat(storedShortestDistance);
- 
-    var calorie=(weight*0.035)+(distanceValue*0.04)
+  function updateCalorieDisplay(calorie) {
     // Display the calculated calorie result in the HTML element
     var calorieResult = document.getElementById("calorieResult");
     calorieResult.innerText = calorie.toFixed(2) + "kcal";
   }
-</script>
 
+  document.addEventListener('DOMContentLoaded', function() {
+    adjustFontSize();
+  });
+
+  window.addEventListener('resize', function() {
+    adjustFontSize();
+  });
+
+  function adjustFontSize() {
+    var roundedBox = document.querySelector('.rounded-box');
+    var content = roundedBox.innerText;
+    var fontSize = 30; // Set your initial font size here
+
+    while (roundedBox.scrollHeight > roundedBox.clientHeight) {
+      // Decrease font size until the content fits within the box
+      fontSize -= 1;
+      roundedBox.style.fontSize = fontSize + 'px';
+    }
+  }
+</script>
   </body>
 </html>

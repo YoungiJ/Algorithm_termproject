@@ -797,6 +797,7 @@ document.getElementById('form-container').addEventListener('submit', function(ev
 
   const { shortestPath, shortestDistance, shortestTime } = findShortestPath(startIndex, endIndex, waypointIndices, distance, time);
   localStorage.setItem('shortestDistance', shortestDistance);
+  localStorage.setItem('shortestTime', shortestTime);
 
   const pathNames = shortestPath.map(index => nodes[index]);
   document.getElementById('distance').innerText = `DISTANCE: ${shortestDistance} m`;

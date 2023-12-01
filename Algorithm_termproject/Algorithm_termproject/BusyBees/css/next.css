@@ -49,11 +49,16 @@ footer {
 
 .rounded-box {
   width: 800px; /* 너비 설정 */
-  height: 180px; /* 높이 설정 */
+  height: auto; /* Allow the box to adjust based on content */
+  max-height: 400px; /* Set a maximum height to limit the growth */
   background-color: #fed081; /* 배경색 설정 */
   border-radius: 20px; /* 모서리 둥글게 */
   margin-top: -90px; /* 지도와의 간격 조정을 위한 상단 마진 추가 */
   padding: 20px;
+  overflow: hidden; /* Hide overflowed content */
+
+  word-wrap: break-word; /* Allow long words to break and wrap onto the next line */
+
 }
 
 
