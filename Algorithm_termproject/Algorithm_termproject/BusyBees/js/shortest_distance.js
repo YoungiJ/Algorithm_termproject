@@ -796,11 +796,15 @@ document.getElementById('form-container').addEventListener('submit', function(ev
   const waypointIndices = waypoints.map(waypoint => locationIndexMap.get(waypoint));
 
   const { shortestPath, shortestDistance, shortestTime } = findShortestPath(startIndex, endIndex, waypointIndices, distance, time);
+  localStorage.setItem('shortestDistance', shortestDistance);
 
   const pathNames = shortestPath.map(index => nodes[index]);
   document.getElementById('distance').innerText = `DISTANCE: ${shortestDistance} m`;
   document.getElementById('duration').innerText = `🚶‍♂️PATH: ${pathNames.join(' -> ')}`;
   document.getElementById('time').innerText = `TIME: ${shortestTime} minutes`; // 추가된 시간 표시
+
+
+
 });
 
 

@@ -60,34 +60,52 @@
     <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=4aaaab13e8df34cb92f85f80a8e42bad"></script>
     <!-- 메인 JavaScript 파일 -->
     <script src="../js/next.js"></script>
-    <!-- 칼로리 계산 JS   -->
-    <script>
-      var userWeight = localStorage.getItem('weight');
-
-      document.addEventListener('DOMContentLoaded', function() {
-        // Call the calculateCalorie function
-        calculateCalorie();
-      });
-      function calculateCalorie() {
-        // Your existing calculateCalorie function logic
-        var distance = document.getElementById("distance").innerText;
-        var duration = document.getElementById("duration").innerText;
-
-        // Check if userWeight is available
-        if (!userWeight || isNaN(parseFloat(userWeight)) || parseFloat(userWeight) <= 0) {
-          alert('유효한 몸무게 정보가 없습니다.');
-          return;
-        }
-        var weight = parseFloat(userWeight);
-        var speed = 4; // km/h
-        var calorie = (weight * 220.06) / 1000;
-
-        // Display the calculated calorie result in the HTML element
-        var calorieResultElement = document.getElementById("calorieResult");
-        calorieResultElement.innerText = calorie.toFixed(2) + "kcal";
-      }
-    </script>
     <script src="../js/search.js"></script>
     <script src="../js/shortest_distance.js"></script>
+    <!-- 칼로리 계산 JS   -->
+    <!-- 폼 제출 이벤트 리스너 -->
+<script>
+  document.getElementById('form-container').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Your existing form submission logic...
+
+    // Call calculateCalorie function with the latest userWeight and storedShortestDistance
+    calculateCalorie();
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve data from localStorage
+    var storedShortestDistance = localStorage.getItem('shortestDistance');
+    var userWeight = localStorage.getItem('weight');
+  
+    // Display the retrieved data in the console
+    console.log('Stored Shortest Distance:', storedShortestDistance);
+    console.log('User Weight:', userWeight);
+
+    // Call calculateCalorie function with the initial values
+    calculateCalorie();
+  });
+
+  function calculateCalorie() {
+    // Your existing calculateCalorie function logic
+    var distance = document.getElementById("distance").innerText;
+    var duration = document.getElementById("duration").innerText;
+
+    // Retrieve the latest values from localStorage
+    var storedShortestDistance = localStorage.getItem('shortestDistance');
+    var userWeight = localStorage.getItem('weight');
+
+    // Parse the values to numbers
+    var weight = parseFloat(userWeight);
+    var distanceValue = parseFloat(storedShortestDistance);
+ 
+    var calorie=(weight*0.035)+(distanceValue*0.04)
+    // Display the calculated calorie result in the HTML element
+    var calorieResult = document.getElementById("calorieResult");
+    calorieResult.innerText = calorie.toFixed(2) + "kcal";
+  }
+</script>
+
   </body>
 </html>

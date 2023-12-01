@@ -23,6 +23,22 @@ kakao.maps.event.addListener(map, 'click', (mouseEvent) => {
   alert(`위도 : ${latlng.getLat()}, 경도 : ${latlng.getLng()}`);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  // LocalStorage에서 데이터 불러오기
+  var gender = localStorage.getItem('gender');
+  var name = localStorage.getItem('name');
+  var age = localStorage.getItem('age');
+  var height = localStorage.getItem('height');
+  var weight = localStorage.getItem('weight');
+
+  // HTML 요소에 데이터 설정
+  document.getElementById('userGender').textContent = gender;
+  document.getElementById('userName').textContent = name;
+  document.getElementById('userAge').textContent = age;
+  document.getElementById('userHeight').textContent = height;
+  document.getElementById('userWeight').textContent = weight;
+});
+
 function addWaypoint() {
   // 최대 5개의 경유지를 허용
   const maxWaypoints = 5;
@@ -65,38 +81,4 @@ function removeWaypoint() {
     lastWaypointInput.parentNode.removeChild(lastWaypointInput);
   }
 }
-
-
-
-// 칼로리 식 바꾸기
-// function calculateCalorie() {
-//   // 거리와 소요 시간을 가져옵니다.
-//   var distanceText = document.getElementById("distance").innerText;
-//   var duration = document.getElementById("duration").innerText;
-//
-//   // 거리 텍스트에서 숫자만 추출 (예: '10 km' -> 10)
-//   var distance = parseFloat(distanceText);
-//
-//   // 사용자의 몸무게를 숫자로 변환
-//   var weight = parseFloat(localStorage.getItem('weight'));
-//
-//   // 몸무게와 거리가 유효한지 확인
-//   if (isNaN(weight) || weight <= 0 || isNaN(distance) || distance <= 0) {
-//     alert('유효한 몸무게 또는 거리 정보가 없습니다.');
-//     return;
-//   }
-//
-//   // 칼로리 계산
-//   var calorie = (weight * 0.035) + (distance * 0.04 * weight);
-//
-//   var calorieResultElement = document.getElementById("calorieResult");
-//   calorieResultElement.innerText = calorie.toFixed(2) + "kcal";
-// }
-
-// 얻어온 정보를 다시 활용하려면 밑의 코드 작성
-
-
-
-
-
 
