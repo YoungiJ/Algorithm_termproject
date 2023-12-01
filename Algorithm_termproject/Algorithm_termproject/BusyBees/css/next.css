@@ -13,7 +13,7 @@
 
 #distance {
   color: #fff; /* Set a different color for better visibility */
-  font-size: 40px; /* Adjust the font size to make it more visible */
+  font-size: 30px; /* Adjust the font size to make it more visible */
   margin-bottom: 8px; /* Add some space between the elements */
 }
 
@@ -48,12 +48,12 @@ footer {
 }
 
 .rounded-box {
-  width: 1000px; /* 너비 설정 */
+  width: 800px; /* 너비 설정 */
   height: 180px; /* 높이 설정 */
   background-color: #fed081; /* 배경색 설정 */
   border-radius: 20px; /* 모서리 둥글게 */
-  margin-top: 15px; /* 지도와의 간격 조정을 위한 상단 마진 추가 */
-  padding: 30px;
+  margin-top: -90px; /* 지도와의 간격 조정을 위한 상단 마진 추가 */
+  padding: 20px;
 }
 
 
